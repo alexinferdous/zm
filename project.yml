@@ -1,0 +1,47 @@
+name: PrayerTimes
+
+options:
+  bundleIdPrefix: com.zm
+  deploymentTarget:
+    iOS: "16.0"
+  xcodeVersion: "15.0"
+  createIntermediateGroups: true
+
+settings:
+  SWIFT_VERSION: "5.9"
+  DEVELOPMENT_TEAM: ""
+  ENABLE_BITCODE: "NO"
+
+targets:
+  PrayerTimes:
+    type: application
+    platform: iOS
+    sources:
+      - path: PrayerTimes
+        excludes:
+          - "**/*.plist"
+          - "**/*.entitlements"
+    resources:
+      - PrayerTimes/Resources
+    info:
+      path: PrayerTimes/Info.plist
+      properties:
+        CFBundleDisplayName: "Prayer Times"
+        NSLocationWhenInUseUsageDescription: "Your location is used to calculate accurate prayer times and find nearby mosques."
+        NSLocationAlwaysAndWhenInUseUsageDescription: "Your location is used to provide prayer time notifications in the background."
+        NSSiriUsageDescription: "Allow Siri to tell you the next prayer time."
+        UIBackgroundModes:
+          - location
+        CFBundleShortVersionString: "1.0"
+        CFBundleVersion: "1"
+        UILaunchScreen:
+          UIColorName: "AccentColor"
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
+          - UIInterfaceOrientationPortraitUpsideDown
+    entitlements:
+      path: PrayerTimes/PrayerTimes.entitlements
+      properties:
+        com.apple.developer.siri: true
+    settings:
+      CODE_SIGN_STYLE: Automatic
